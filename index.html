@@ -138,8 +138,7 @@
         .hero {
             background: linear-gradient(135deg, rgba(197, 75, 60, 0.96) 0%, rgba(163, 61, 49, 0.98) 100%);
             color: var(--white);
-            padding: 110px 0 120px;
-            text-align: center;
+            padding: 80px 0 90px;
             position: relative;
         }
 
@@ -153,6 +152,17 @@
             background: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--primary-dark));
         }
 
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
         .hero h1 {
             font-size: 3.25rem;
             margin-bottom: 22px;
@@ -160,12 +170,72 @@
             text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 35px;
+        .hero-text p {
+            font-size: 1.2rem;
+            max-width: 580px;
+            margin-bottom: 30px;
             opacity: 0.95;
             line-height: 1.7;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 36px;
+        }
+
+        .hero-phone {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            opacity: 0.9;
+            transition: var(--transition-fast);
+        }
+
+        .hero-phone:hover {
+            opacity: 1;
+        }
+
+        .hero-trust {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            opacity: 0.85;
+        }
+
+        .trust-item span {
+            font-size: 1.1rem;
+        }
+
+        .hero-form {
+            background: var(--white);
+            padding: 36px;
+            border-radius: 14px;
+            color: var(--dark);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-form h3 {
+            font-size: 1.35rem;
+            margin-bottom: 6px;
+        }
+
+        .hero-form .form-subtitle {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 22px;
+            line-height: 1.5;
         }
 
         .btn {
@@ -796,10 +866,11 @@
 
         /* CTA */
         .cta {
-            padding: 95px 0;
+            padding: 90px 0;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: var(--white);
             position: relative;
+            text-align: center;
         }
 
         .cta::before {
@@ -809,70 +880,45 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 60%);
+            background: radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.08) 0%, transparent 60%);
         }
 
-        .cta-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 65px;
-            align-items: center;
+        .cta-closing {
             position: relative;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .cta-text h2 {
+        .cta-closing h2 {
             font-size: 2.35rem;
             margin-bottom: 22px;
             text-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .cta-text p {
+        .cta-closing p {
             font-size: 1.1rem;
             opacity: 0.95;
-            margin-bottom: 28px;
+            margin-bottom: 36px;
             line-height: 1.7;
         }
 
-        .check-list {
-            list-style: none;
+        .cta-closing-actions {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            align-items: center;
         }
 
-        .check-list li {
-            padding: 11px 0;
-            padding-left: 36px;
-            position: relative;
-            font-size: 1rem;
-            transition: var(--transition-fast);
+        .btn-outline-white {
+            border: 2px solid rgba(255,255,255,0.6);
+            color: var(--white);
+            background: transparent;
         }
 
-        .check-list li:hover {
-            transform: translateX(4px);
-        }
-
-        .check-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .cta .check-list li::before {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .cta-form {
-            background: var(--white);
-            padding: 42px;
-            border-radius: 14px;
-            color: var(--dark);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .cta-form h3 {
-            font-size: 1.5rem;
-            margin-bottom: 24px;
+        .btn-outline-white:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--white);
+            transform: translateY(-2px);
         }
 
         .form-group {
@@ -946,6 +992,32 @@
 
         /* Responsive */
         @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+            }
+
+            .hero-ctas {
+                justify-content: center;
+            }
+
+            .hero-trust {
+                justify-content: center;
+            }
+
+            .hero-form {
+                max-width: 480px;
+                margin: 0 auto;
+            }
+
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -963,8 +1035,7 @@
                 display: none;
             }
 
-            .case-study-grid,
-            .cta-content {
+            .case-study-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -987,8 +1058,31 @@
                 display: none;
             }
 
+            .hero {
+                padding: 50px 0 60px;
+            }
+
             .hero h1 {
                 font-size: 2.25rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .hero-trust {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .cta-closing h2 {
+                font-size: 1.75rem;
+            }
+
+            .cta-closing-actions {
+                flex-direction: column;
+                gap: 12px;
             }
 
             .services-grid,
@@ -1009,7 +1103,6 @@
 
             .section-header h2,
             .case-study-content h2,
-            .cta-text h2,
             .proof-header h2 {
                 font-size: 1.75rem;
             }
@@ -1042,9 +1135,44 @@
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <h1>Cleveland SEO Agency</h1>
-            <p>We help Cleveland businesses rank higher, drive qualified traffic, and turn search visibility into measurable revenue. No templates. No recycled strategies. Just results built for your market.</p>
-            <a href="#contact" class="btn btn-white">Get Your Free SEO Evaluation</a>
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>Cleveland SEO Agency</h1>
+                    <p>We help Cleveland businesses rank higher, drive qualified traffic, and turn search visibility into measurable revenue. No templates. No recycled strategies. Just results built for your market.</p>
+                    <div class="hero-ctas">
+                        <a href="#hero-form" class="btn btn-white">Get Your Free Evaluation</a>
+                        <a href="tel:2162087718" class="hero-phone">or call 216-208-7718</a>
+                    </div>
+                    <div class="hero-trust">
+                        <div class="trust-item"><span>🏆</span> Clutch Top SEO Company</div>
+                        <div class="trust-item"><span>📍</span> Cleveland HQ Since 2010</div>
+                        <div class="trust-item"><span>⭐</span> 15+ Years of Results</div>
+                    </div>
+                </div>
+                <div class="hero-form" id="hero-form">
+                    <h3>Free SEO Evaluation</h3>
+                    <p class="form-subtitle">Find out what's holding your site back — and how to fix it.</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="hero-name">Name *</label>
+                            <input type="text" id="hero-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hero-email">Email *</label>
+                            <input type="email" id="hero-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hero-phone">Phone</label>
+                            <input type="tel" id="hero-phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="hero-website">Website URL</label>
+                            <input type="url" id="hero-website" name="website">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Request Free Evaluation</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1474,38 +1602,12 @@
     <!-- CTA -->
     <section class="cta" id="contact">
         <div class="container">
-            <div class="cta-content">
-                <div class="cta-text">
-                    <h2>Ready to Grow Your Cleveland Business?</h2>
-                    <p>Get a free SEO evaluation and find out exactly where you stand — what's working, what's not, and where the biggest opportunities are. No obligation, no pressure.</p>
-                    <ul class="check-list" style="color: white;">
-                        <li>Complete website SEO audit</li>
-                        <li>Competitor analysis for your market</li>
-                        <li>Keyword opportunity report</li>
-                        <li>Custom strategy recommendations</li>
-                    </ul>
-                </div>
-                <div class="cta-form">
-                    <h3>Get Your Free SEO Evaluation</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="website">Website URL</label>
-                            <input type="url" id="website" name="website">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Request Free Evaluation</button>
-                    </form>
+            <div class="cta-closing">
+                <h2>Ready to Grow Your Cleveland Business?</h2>
+                <p>Get a free SEO evaluation and find out exactly where you stand — what's working, what's not, and where the biggest opportunities are. No obligation, no pressure.</p>
+                <div class="cta-closing-actions">
+                    <a href="#hero-form" class="btn btn-white">Get Your Free Evaluation</a>
+                    <a href="tel:2162087718" class="btn btn-outline-white">Call 216-208-7718</a>
                 </div>
             </div>
         </div>
